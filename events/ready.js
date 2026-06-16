@@ -8,7 +8,7 @@ module.exports = {
         
         // Set a custom status for your bot
         client.user.setPresence({
-            activities: [{ name: 'Asiana Airlines PTFS', type: ActivityType.Watching }],
+            activities: [{ name: '/ping • AsianaUtils', type: ActivityType.Watching }],
             status: 'online',
         });
     },
