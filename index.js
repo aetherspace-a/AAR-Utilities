@@ -1,7 +1,8 @@
 require('dotenv').config();
-const { Client, Collection, GatewayIntentBits, Events } = require('discord.js'); // Added Events
+const { Client, Collection, GatewayIntentBits, Events } = require('discord.js');
 const fs = require('node:fs');
 const path = require('node:path');
+const http = require('http'); // Added for UptimeRobot
 
 const client = new Client({
     intents: [
@@ -40,7 +41,7 @@ for (const file of eventFiles) {
     else client.on(event.name, (...args) => event.execute(...args, client));
 }
 
-// --- Interaction Handler (THE MISSING PIECE) ---
+// --- Interaction Handler ---
 client.on(Events.InteractionCreate, async interaction => {
     if (!interaction.isChatInputCommand()) return;
 
@@ -57,6 +58,16 @@ client.on(Events.InteractionCreate, async interaction => {
             await interaction.reply({ content: 'There was an error executing this command!', ephemeral: true });
         }
     }
+});
+
+// --- Uptime Server ---
+const server = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Asiana Utilities is online!');
+});
+
+server.listen(process.env.PORT || 3000, () => {
+    console.log('HTTP server is running for UptimeRobot pings.');
 });
 
 client.login(process.env.DISCORD_TOKEN);
