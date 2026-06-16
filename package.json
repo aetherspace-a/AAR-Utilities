@@ -1,0 +1,33 @@
+{
+  "name": "aar-utilities",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aetherspace-a/AAR-Utilities.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/aetherspace-a/AAR-Utilities/issues"
+  },
+  "homepage": "https://github.com/aetherspace-a/AAR-Utilities#readme",
+  "dependencies": {
+    "@discordjs/voice": "^0.19.2",
+    "discord-tts": "^1.2.2",
+    "discord.js": "^14.26.4",
+    "dotenv": "^17.4.2",
+    "ffmpeg-static": "^5.3.0",
+    "google-tts-api": "^2.0.2",
+    "libsodium-wrappers": "^0.8.4",
+    "node-cron": "^4.2.1",
+    "node-fetch": "^3.3.2",
+    "opusscript": "^0.0.8"
+  }
+}
