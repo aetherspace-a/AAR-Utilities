@@ -2,68 +2,71 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Asiana Utilities | Official Command Center</title>
-  </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <title>Asiana Airlines PTFS | Beautiful People</title>
+  <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1507235764126093453/1510130338637025300/020560.KS_1.png">
+  
+  <style>
+    :root[data-theme="dark"] {
+      --bg-base: #000000;
+      --mesh-1: rgba(255, 59, 48, 0.25);
+      --mesh-2: rgba(153, 0, 51, 0.35);
+      --mesh-3: rgba(20, 20, 35, 0.5);
+      --glass-bg: rgba(30, 30, 32, 0.45);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --text: #f5f5f7;
+      --text-muted: #a1a1a6;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg-base); color: var(--text); font-family: -apple-system, sans-serif; overflow-x: hidden; }
+
+    /* Background Blobs */
+    .apple-ambient { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; background: var(--bg-base); }
+    .mesh-blob { position: absolute; border-radius: 50%; filter: blur(120px); animation: ambientBreathe 24s infinite alternate; }
+    .mesh-1 { width: 80vw; height: 80vw; background: var(--mesh-1); top: -20%; left: -20%; }
+    .mesh-2 { width: 70vw; height: 70vw; background: var(--mesh-2); bottom: -10%; right: -10%; }
+    .mesh-3 { width: 90vw; height: 90vw; background: var(--mesh-3); top: 20%; left: 10%; mix-blend-mode: screen; }
+    @keyframes ambientBreathe { 0% { transform: scale(1) translate(0, 0); opacity: 0.7; } 100% { transform: scale(1.15) translate(4%, 4%); opacity: 1; } }
+
+    /* Layout */
+    #hero { text-align: center; padding: 12rem 2rem; }
+    .logo-img { height: 60px; margin-bottom: 2rem; filter: brightness(0) invert(1); }
+    h1 { font-size: 5rem; font-weight: 800; letter-spacing: -3px; margin-bottom: 1rem; }
+    p { color: var(--text-muted); font-size: 1.25rem; max-width: 600px; margin: 0 auto 3rem; }
+    
+    .hero-actions { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+    .btn { padding: 1.1rem 2.5rem; background: #fff; color: #000 !important; text-decoration: none; border-radius: 999px; font-weight: 600; transition: 0.3s; }
+    .btn-outline { background: var(--glass-bg); color: #fff !important; border: 1px solid var(--glass-border); backdrop-filter: blur(20px); }
+    .btn:hover { transform: scale(1.05); }
+
+    footer { padding: 5rem 2rem; text-align: center; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--glass-border); margin-top: 5rem; background: rgba(0,0,0,0.5); }
+    .footer-logo { height: 40px; margin-bottom: 1rem; filter: brightness(0) invert(1); }
+  </style>
+</head>
 <body>
 
-<div class="noise-overlay"></div>
 <div class="apple-ambient">
   <div class="mesh-blob mesh-1"></div>
   <div class="mesh-blob mesh-2"></div>
   <div class="mesh-blob mesh-3"></div>
 </div>
 
-<nav>
-  <a class="logo" href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Asiana_Airlines-Logo_New.svg" alt="Asiana Logo" class="logo-img"></a>
-  <ul>
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#bot-stats">Bot Status</a></li>
-  </ul>
-  <button class="theme-btn" onclick="toggleTheme()">Appearance</button>
-</nav>
-
 <div id="hero">
-  <h1>Asiana Utilities</h1>
-  <h3>OFFICIAL COMMAND CENTER</h3>
+  <img src="https://cdn.discordapp.com/attachments/1507235764126093453/1510130338637025300/020560.KS_1.png?ex=6a32c439&is=6a3172b9&hm=96cee89e46801d82c481e03e93854616c2f956cf107981343b1d91572256240d&" class="logo-img">
+  <h1>"Beautiful People"</h1>
   <p>The premium utility suite for Asiana Airlines PTFS. Manage flight logistics, track operations, and ensure 24/7 uptime.</p>
   <div class="hero-actions">
-    <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_BOT_ID&permissions=8&scope=bot+applications.commands" target="_blank" class="btn">Invite Bot</a>
-    <a href="https://discord.gg/WsPMFdJsWp" target="_blank" class="btn btn-outline">Join Server</a>
+    <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_BOT_ID&permissions=8&scope=bot+applications.commands" class="btn">Invite Bot</a>
+    <a href="https://stats.uptimerobot.com/WAacdk5hmd" target="_blank" class="btn btn-outline">System Status</a>
+    <a href="https://discord.gg/WsPMFdJsWp" class="btn btn-outline">Join Server</a>
   </div>
 </div>
 
-<section id="bot-stats" class="reveal">
-  <h2>System <span>Status.</span></h2>
-  <p class="sub">Real-time health monitoring for Asiana Airlines operations.</p>
-  <div class="grid-2">
-    <div class="feature-card apple-glass">
-      <h3>Bot Connectivity</h3>
-      <p id="status-text">Checking connection...</p>
-    </div>
-    <div class="feature-card apple-glass">
-      <h3>Uptime Service</h3>
-      <p>Automated keep-alive via UptimeRobot. Status: <strong>Active</strong></p>
-    </div>
-  </div>
-</section>
-
-<script>
-  // Pings the root URL to verify if the server (index.js) is responding
-  async function checkBotStatus() {
-    try {
-      const response = await fetch(window.location.origin);
-      if (response.ok) {
-        document.getElementById('status-text').innerHTML = "🟢 <strong>System Operational:</strong> 100% Uptime";
-      }
-    } catch (e) {
-      document.getElementById('status-text').innerHTML = "🔴 <strong>System Disconnected</strong>";
-    }
-  }
-  checkBotStatus();
-  
-  // Theme & Reveal scripts from your original code...
-</script>
+<footer>
+  <img src="https://cdn.discordapp.com/attachments/1507235764126093453/1510130338637025300/020560.KS_1.png?ex=6a32c439&is=6a3172b9&hm=96cee89e46801d82c481e03e93854616c2f956cf107981343b1d91572256240d&" class="footer-logo">
+  <p>© 2026 Asiana Airlines PTFS - Founded by Aether. All rights reserved.</p>
+  <p style="margin-top:5px;">Virtual airline — not affiliated with the real Asiana Airlines.</p>
+</footer>
 
 </body>
 </html>

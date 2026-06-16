@@ -2,10 +2,9 @@ require('dotenv').config();
 const { Client, Collection, GatewayIntentBits, Events } = require('discord.js');
 const fs = require('node:fs');
 const path = require('node:path');
-const http = require('http');
-const express = require('express'); // Added Express
-
+const express = require('express');
 const app = express();
+
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -18,7 +17,7 @@ const client = new Client({
 
 client.commands = new Collection();
 
-// --- Command & Event Loaders (Keep your existing code here) ---
+// --- 1. Load Commands ---
 const foldersPath = path.join(__dirname, 'commands');
 const commandFolders = fs.readdirSync(foldersPath);
 for (const folder of commandFolders) {
@@ -31,6 +30,7 @@ for (const folder of commandFolders) {
     }
 }
 
+// --- 2. Load Events ---
 const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
@@ -40,22 +40,12 @@ for (const file of eventFiles) {
     else client.on(event.name, (...args) => event.execute(...args, client));
 }
 
-// --- Interaction Handler ---
-client.on(Events.InteractionCreate, async interaction => {
-    // (Keep your existing Interaction Handler logic)
-    if (!interaction.isChatInputCommand() && !interaction.isButton() && !interaction.isModalSubmit()) return;
-    
-    // ... [Your existing logic for commands, buttons, and modals] ...
-});
-
-// --- Web Server & Uptime ---
-// Serve the landing page from the 'public' folder
+// --- 3. Web Server & Landing Page (Uptime) ---
 app.use(express.static(path.join(__dirname, 'public')));
 
-const server = http.createServer(app);
-
-server.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log(`Landing page and Bot server running on port ${process.env.PORT || 3000}`);
 });
 
+// --- 4. Login ---
 client.login(process.env.DISCORD_TOKEN);
