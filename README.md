@@ -1,72 +1,50 @@
-# ✈️ AAR-Utilities Bot
-
+# ✈️ AAR-UTILITIES Bot
 > *Official Utility Suite for Asiana Airlines PTFS*
 
 ---
 
-### 📂 File Structure Overview
-
+### 📋 Project Structure
 Your bot is organized into specialized modules to ensure efficiency and clean code management:
 
-* **`audio/`** ➠ Contains critical assets for `boarding.mp3`, `landing.mp3`, and `safety.mp3`.
-* **`commands/`** ➠ Organized into five core functional categories:
-* 🛡️ **Admin**: `force-qotd.js`
-* ✈️ **Aviation**: `flightrequest.js`, `metar.js`, `notam.js`, `zulu.js`
-* 🎉 **Fun**: `a.js`, `goon.js`, `lofi.js`, `mrbeast.js`
-* ⚖️ **Moderation**: `kick.js`, `purge.js`
-* 🛠️ **Utilities**: `ping.js`, `server-info.js`, `user-profile.js`
-* 🔊 **Voice**: `boarding.js`, `landing.js`, `safetyvideo.js`, `stop.js`
-
-
-* **`events/`** ➠ Handles bot lifecycle events like `ready.js`, `guildMemberAdd.js`, and `interactionCreate.js`.
+* **`audio/`** ➠ Contains aviation assets (`boarding.mp3`, `landing.mp3`, `safety.mp3`).
+* **`commands/`** ➠ 
+    * 🛡️ **Admin**: `force-qotd.js`
+    * ✈️ **Aviation**: `flightrequest.js`, `metar.js`, `notam.js`, `zulu.js`
+    * 🎉 **Fun**: `a.js`, `goon.js`, `lofi.js`, `mrbeast.js`
+    * ⚖️ **Moderation**: `kick.js`, `purge.js`
+    * 🛠️ **Utilities**: `ping.js`, `server-info.js`, `user-profile.js`, `rank.js`
+    * 🔊 **Voice**: `boarding.js`, `landing.js`, `safetyvideo.js`, `stop.js`
+* **`events/`** ➠ Handles bot lifecycle and XP tracking (`leveling.js`, `interactionCreate.js`, etc.).
 
 ---
 
-### 🚀 Feature Highlights
+### 🚀 Key Features
 
-| Category | Capability |
-| --- | --- |
-| **Flight Ops** | Real-time weather (`/metar`), NOTAMs, and UTC time synchronization. |
+| Feature | Description |
+| :--- | :--- |
+| **Leveling System** | Full-featured XP tracking with auto-role rewards for levels 10, 20, 30, 40, and 50+. |
+| **Aviation Ops** | Real-time weather (`/metar`), NOTAMs, and UTC time synchronization. |
 | **Voice Assets** | On-demand cabin announcements and safety briefings. |
-| **Admin Controls** | Force-triggering of the daily QOTD and robust moderation tools. |
-| **System Health** | Real-time latency monitoring and server statistics. |
+| **Admin Controls** | Force-triggering of daily QOTD and robust moderation. |
+| **Panel Aesthetics** | High-end embedded panels for all user feedback. |
 
 ---
 
-### 🛠️ Quick Start
-
-1. **Clone the repository:**
-```bash
-git clone https://github.com/YOUR_USERNAME/AAR-UTILITIES.git
-cd AAR-UTILITIES
-
-```
-
-
-
-```
-2.  **Install dependencies:**
-    ```bash
-npm install
-
-```
-
-3. **Configure environment:** Create a `.env` file and input your `DISCORD_TOKEN`.
-4. **Launch the bot:**
-```bash
-
-```
-node index.js
-
-```
+### 📈 Leveling & Reward Roles
+The bot automatically tracks progress and assigns roles based on user engagement:
+* **Level 10** ➠ `1507304664016748615`
+* **Level 20** ➠ `1507304633259921408`
+* **Level 30** ➠ `1507304599587917856`
+* **Level 40** ➠ `1507304525751521400`
+* **Level 50+** ➠ `1507304504465428635`
 
 ---
 
-### ⚙️ Technical Specs
-🔹 **Framework:** `discord.js` (v14+)
-🔹 **Environment:** `Node.js` (v18+)
-🔹 **Voice Engine:** Integrated `@discordjs/voice` support for audio assets.
-🔹 **Event Handling:** Modular `events/` system for seamless interaction processing.
+### 🛠️ Setup
+1. **Clone & Install:** `git clone ...` then `npm install`
+2. **Environment:** Setup `.env` with your `DISCORD_TOKEN`.
+3. **Deploy:** `node deploy-commands.js`
+4. **Launch:** `node index.js`
 
 ---
 
