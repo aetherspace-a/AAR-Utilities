@@ -4,9 +4,10 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('openserver')
         .setDescription('Sends the Server Opened announcement to the designated channel.')
-        .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages), // Restrict to staff
+        .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
     async execute(interaction) {
         const targetChannelId = '1507312279736029264';
+        const roleToMention = '1507385048779984906';
         const targetChannel = interaction.client.channels.cache.get(targetChannelId);
 
         if (!targetChannel) {
@@ -47,11 +48,15 @@ module.exports = {
         };
 
         try {
-            await targetChannel.send(embedData);
+            await targetChannel.send({
+                content: `<@&${roleToMention}>`,
+                embeds: embedData.embeds,
+                components: embedData.components
+            });
             await interaction.reply({ content: `✅ Announcement sent to <#${targetChannelId}>!`, ephemeral: true });
         } catch (error) {
             console.error(error);
-            await interaction.reply({ content: '❌ Failed to send the announcement.', ephemeral: true });
+            await interaction.reply({ content: '❌ Failed to send the announcement. Please check bot permissions.', ephemeral: true });
         }
     },
 };
