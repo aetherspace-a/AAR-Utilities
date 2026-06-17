@@ -3,44 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-  <title>Asiana Airlines PTFS | Beautiful People</title>
+  <title>Asiana Utilities | Official Command Center</title>
   <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1507235764126093453/1510130338637025300/020560.KS_1.png">
   
   <style>
     :root[data-theme="dark"] {
       --bg-base: #000000;
-      --mesh-1: rgba(255, 59, 48, 0.25);
-      --mesh-2: rgba(153, 0, 51, 0.35);
-      --mesh-3: rgba(20, 20, 35, 0.5);
-      --glass-bg: rgba(30, 30, 32, 0.45);
-      --glass-border: rgba(255, 255, 255, 0.12);
-      --text: #f5f5f7;
+      --mesh-1: rgba(198, 12, 48, 0.2); /* Asiana Red */
+      --mesh-2: rgba(50, 50, 50, 0.2);
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --text: #ffffff;
       --text-muted: #a1a1a6;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg-base); color: var(--text); font-family: -apple-system, sans-serif; overflow-x: hidden; }
+    body { background: var(--bg-base); color: var(--text); font-family: -apple-system, sans-serif; }
 
-    /* Background Blobs */
+    /* Blobs */
     .apple-ambient { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; background: var(--bg-base); }
-    .mesh-blob { position: absolute; border-radius: 50%; filter: blur(120px); animation: ambientBreathe 24s infinite alternate; }
-    .mesh-1 { width: 80vw; height: 80vw; background: var(--mesh-1); top: -20%; left: -20%; }
-    .mesh-2 { width: 70vw; height: 70vw; background: var(--mesh-2); bottom: -10%; right: -10%; }
-    .mesh-3 { width: 90vw; height: 90vw; background: var(--mesh-3); top: 20%; left: 10%; mix-blend-mode: screen; }
-    @keyframes ambientBreathe { 0% { transform: scale(1) translate(0, 0); opacity: 0.7; } 100% { transform: scale(1.15) translate(4%, 4%); opacity: 1; } }
+    .mesh-blob { position: absolute; border-radius: 50%; filter: blur(120px); animation: ambientBreathe 20s infinite alternate; }
+    .mesh-1 { width: 60vw; height: 60vw; background: var(--mesh-1); top: -10%; left: -10%; }
+    .mesh-2 { width: 50vw; height: 50vw; background: var(--mesh-2); bottom: -10%; right: -10%; }
+    @keyframes ambientBreathe { 0% { transform: scale(1); } 100% { transform: scale(1.2); } }
 
-    /* Layout */
-    #hero { text-align: center; padding: 12rem 2rem; }
-    .logo-img { height: 60px; margin-bottom: 2rem; filter: brightness(0) invert(1); }
-    h1 { font-size: 5rem; font-weight: 800; letter-spacing: -3px; margin-bottom: 1rem; }
-    p { color: var(--text-muted); font-size: 1.25rem; max-width: 600px; margin: 0 auto 3rem; }
+    #hero { text-align: center; padding: 8rem 2rem 4rem; }
+    .logo-img { height: 70px; margin-bottom: 1.5rem; filter: brightness(0) invert(1); }
+    h1 { font-size: 4.5rem; font-weight: 800; letter-spacing: -2px; margin-bottom: 1rem; }
+    .btn-group { display: flex; gap: 15px; justify-content: center; margin-top: 2rem; }
+    .btn { padding: 14px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; background: #fff; color: #000; transition: 0.3s; }
     
-    .hero-actions { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
-    .btn { padding: 1.1rem 2.5rem; background: #fff; color: #000 !important; text-decoration: none; border-radius: 999px; font-weight: 600; transition: 0.3s; }
-    .btn-outline { background: var(--glass-bg); color: #fff !important; border: 1px solid var(--glass-border); backdrop-filter: blur(20px); }
-    .btn:hover { transform: scale(1.05); }
+    /* Features Grid */
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: 4rem auto; padding: 0 20px; }
+    .card { background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 2rem; border-radius: 24px; backdrop-filter: blur(10px); }
+    .card h3 { margin-bottom: 10px; color: #ff453a; }
 
-    footer { padding: 5rem 2rem; text-align: center; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--glass-border); margin-top: 5rem; background: rgba(0,0,0,0.5); }
-    .footer-logo { height: 40px; margin-bottom: 1rem; filter: brightness(0) invert(1); }
+    footer { padding: 4rem; text-align: center; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid var(--glass-border); }
   </style>
 </head>
 <body>
@@ -48,24 +45,35 @@
 <div class="apple-ambient">
   <div class="mesh-blob mesh-1"></div>
   <div class="mesh-blob mesh-2"></div>
-  <div class="mesh-blob mesh-3"></div>
 </div>
 
 <div id="hero">
-  <img src="https://cdn.discordapp.com/attachments/1507235764126093453/1510130338637025300/020560.KS_1.png?ex=6a32c439&is=6a3172b9&hm=96cee89e46801d82c481e03e93854616c2f956cf107981343b1d91572256240d&" class="logo-img">
-  <h1>"Beautiful People"</h1>
-  <p>The premium utility suite for Asiana Airlines PTFS. Manage flight logistics, track operations, and ensure 24/7 uptime.</p>
-  <div class="hero-actions">
+  <img src="https://cdn.discordapp.com/attachments/1507235764126093453/1510130338637025300/020560.KS_1.png" class="logo-img">
+  <h1>Asiana Utilities</h1>
+  <p>The premium command center for Asiana Airlines PTFS. High-performance flight logistics and server automation.</p>
+  <div class="btn-group">
     <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_BOT_ID&permissions=8&scope=bot+applications.commands" class="btn">Invite Bot</a>
-    <a href="https://stats.uptimerobot.com/WAacdk5hmd" target="_blank" class="btn btn-outline">System Status</a>
-    <a href="https://discord.gg/WsPMFdJsWp" class="btn btn-outline">Join Server</a>
+    <a href="https://stats.uptimerobot.com/WAacdk5hmd" target="_blank" class="btn" style="background:transparent; border:1px solid #fff; color:#fff;">View Status</a>
   </div>
 </div>
 
+<section class="features">
+  <div class="card">
+    <h3>✈️ Flight Logistics</h3>
+    <p>Automated server opening, gate assignments, and real-time VAMS integration.</p>
+  </div>
+  <div class="card">
+    <h3>🛡️ Server Safety</h3>
+    <p>Professional moderation tools and security verification to keep your terminal clean.</p>
+  </div>
+  <div class="card">
+    <h3>⏱️ 24/7 Uptime</h3>
+    <p>Engineered for mission-critical operations with reliable uptime monitoring.</p>
+  </div>
+</section>
+
 <footer>
-  <img src="https://cdn.discordapp.com/attachments/1507235764126093453/1510130338637025300/020560.KS_1.png?ex=6a32c439&is=6a3172b9&hm=96cee89e46801d82c481e03e93854616c2f956cf107981343b1d91572256240d&" class="footer-logo">
-  <p>© 2026 Asiana Airlines PTFS - Founded by Aether. All rights reserved.</p>
-  <p style="margin-top:5px;">Virtual airline — not affiliated with the real Asiana Airlines.</p>
+  <p>© 2026 Asiana Airlines PTFS - Official Bot Portal</p>
 </footer>
 
 </body>
