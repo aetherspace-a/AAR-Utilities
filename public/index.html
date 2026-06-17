@@ -2,78 +2,75 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-  <title>Asiana Utilities | Official Command Center</title>
-  <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1507235764126093453/1510130338637025300/020560.KS_1.png">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asiana Utilities | Premium PTFS Management</title>
   <style>
-    :root[data-theme="dark"] {
-      --bg-base: #000000;
-      --mesh-1: rgba(198, 12, 48, 0.2); /* Asiana Red */
-      --mesh-2: rgba(50, 50, 50, 0.2);
-      --glass-bg: rgba(255, 255, 255, 0.05);
-      --glass-border: rgba(255, 255, 255, 0.1);
-      --text: #ffffff;
-      --text-muted: #a1a1a6;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg-base); color: var(--text); font-family: -apple-system, sans-serif; }
-
-    /* Blobs */
-    .apple-ambient { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; background: var(--bg-base); }
-    .mesh-blob { position: absolute; border-radius: 50%; filter: blur(120px); animation: ambientBreathe 20s infinite alternate; }
-    .mesh-1 { width: 60vw; height: 60vw; background: var(--mesh-1); top: -10%; left: -10%; }
-    .mesh-2 { width: 50vw; height: 50vw; background: var(--mesh-2); bottom: -10%; right: -10%; }
-    @keyframes ambientBreathe { 0% { transform: scale(1); } 100% { transform: scale(1.2); } }
-
-    #hero { text-align: center; padding: 8rem 2rem 4rem; }
-    .logo-img { height: 70px; margin-bottom: 1.5rem; filter: brightness(0) invert(1); }
-    h1 { font-size: 4.5rem; font-weight: 800; letter-spacing: -2px; margin-bottom: 1rem; }
-    .btn-group { display: flex; gap: 15px; justify-content: center; margin-top: 2rem; }
-    .btn { padding: 14px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; background: #fff; color: #000; transition: 0.3s; }
+    :root { --bg: #000; --red: #c60c30; --glass: rgba(255, 255, 255, 0.05); --border: rgba(255, 255, 255, 0.1); }
+    body { background: var(--bg); color: #fff; font-family: -apple-system, sans-serif; line-height: 1.6; }
     
-    /* Features Grid */
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: 4rem auto; padding: 0 20px; }
-    .card { background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 2rem; border-radius: 24px; backdrop-filter: blur(10px); }
-    .card h3 { margin-bottom: 10px; color: #ff453a; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    header { padding: 4rem 0; text-align: center; }
+    .hero-logo { height: 80px; filter: brightness(0) invert(1); margin-bottom: 2rem; }
+    h1 { font-size: 4rem; letter-spacing: -2px; }
+    .tagline { color: #888; font-size: 1.2rem; }
 
-    footer { padding: 4rem; text-align: center; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid var(--glass-border); }
+    /* Features Grid */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 4rem 0; }
+    .card { background: var(--glass); border: 1px solid var(--border); padding: 2rem; border-radius: 20px; }
+    .card h3 { color: var(--red); margin-bottom: 1rem; }
+
+    /* Command Catalog Table */
+    .catalog { margin: 4rem 0; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
+    table { width: 100%; border-collapse: collapse; }
+    th { background: rgba(255,255,255,0.05); text-align: left; padding: 1rem; }
+    td { padding: 1rem; border-top: 1px solid var(--border); }
+
+    .btn { padding: 12px 30px; background: #fff; color: #000; border-radius: 50px; font-weight: 600; text-decoration: none; display: inline-block; }
+    footer { text-align: center; padding: 4rem; color: #555; }
   </style>
 </head>
 <body>
 
-<div class="apple-ambient">
-  <div class="mesh-blob mesh-1"></div>
-  <div class="mesh-blob mesh-2"></div>
-</div>
+<div class="container">
+  <header>
+    <img src="https://cdn.discordapp.com/attachments/1507235764126093453/1510130338637025300/020560.KS_1.png" class="hero-logo">
+    <h1>Asiana Utilities</h1>
+    <p class="tagline">The definitive command suite for Asiana Airlines PTFS operations.</p>
+    <div style="margin-top: 2rem;">
+      <a href="#" class="btn">Add to Discord</a>
+    </div>
+  </header>
 
-<div id="hero">
-  <img src="https://cdn.discordapp.com/attachments/1507235764126093453/1510130338637025300/020560.KS_1.png" class="logo-img">
-  <h1>Asiana Utilities</h1>
-  <p>The premium command center for Asiana Airlines PTFS. High-performance flight logistics and server automation.</p>
-  <div class="btn-group">
-    <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_BOT_ID&permissions=8&scope=bot+applications.commands" class="btn">Invite Bot</a>
-    <a href="https://stats.uptimerobot.com/WAacdk5hmd" target="_blank" class="btn" style="background:transparent; border:1px solid #fff; color:#fff;">View Status</a>
-  </div>
-</div>
+  <section class="grid">
+    <div class="card">
+      <h3>🚀 Flight Dispatch</h3>
+      <p>Automate gate assignments, VAMS syncing, and push flight departures to your dispatch channels instantly.</p>
+    </div>
+    <div class="card">
+      <h3>🛡️ Security Protocol</h3>
+      <p>Hardened moderation tools designed to maintain the professional atmosphere of Asiana operations.</p>
+    </div>
+    <div class="card">
+      <h3>📊 Live Telemetry</h3>
+      <p>Real-time server monitoring and uptime tracking, ensuring your terminal is always ready for passengers.</p>
+    </div>
+  </section>
 
-<section class="features">
-  <div class="card">
-    <h3>✈️ Flight Logistics</h3>
-    <p>Automated server opening, gate assignments, and real-time VAMS integration.</p>
-  </div>
-  <div class="card">
-    <h3>🛡️ Server Safety</h3>
-    <p>Professional moderation tools and security verification to keep your terminal clean.</p>
-  </div>
-  <div class="card">
-    <h3>⏱️ 24/7 Uptime</h3>
-    <p>Engineered for mission-critical operations with reliable uptime monitoring.</p>
-  </div>
-</section>
+  <section class="catalog">
+    <table>
+      <thead><tr><th>Command</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><code>/openserver</code></td><td>Initializes the flight boarding sequence.</td></tr>
+        <tr><td><code>/checkin</code></td><td>Validate VAMS booking references for passengers.</td></tr>
+        <tr><td><code>/status</code></td><td>Check the health of the Asiana infrastructure.</td></tr>
+        <tr><td><code>/announce</code></td><td>Broadcast high-priority alerts to the entire server.</td></tr>
+      </tbody>
+    </table>
+  </section>
+</div>
 
 <footer>
-  <p>© 2026 Asiana Airlines PTFS - Official Bot Portal</p>
+  <p>© 2026 Asiana Airlines PTFS — Powered by Aether</p>
 </footer>
 
 </body>
